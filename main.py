@@ -33,5 +33,3 @@ def omikuji():
     ]
 
     return omikuji_list[random.randrange(10)]
-
-    
