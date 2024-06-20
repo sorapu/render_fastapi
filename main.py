@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import FastAPI
- from fastapi.responses import HTMLResponse 
+from fastapi.responses import HTMLResponse  # インデントエラーを修正
 
 import random
 
@@ -29,10 +29,6 @@ def omikuji():
         "大凶"
     ]
     return {"result": omikuji_list[random.randrange(10)]}
-
-
-
-   
 
 @app.get("/index")
 def index():
