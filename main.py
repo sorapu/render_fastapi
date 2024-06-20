@@ -1,6 +1,7 @@
 from typing import Optional
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from pydantic import BaseModel
 
 import random
 
@@ -39,12 +40,15 @@ def index():
         </head>
         <body>
             <h1 style="color:blue;">Hi!!!!! I like Sushi!!!!</h1>
-             <h2>Why don't you go to Vinland?</h2>
+            <h2>Why don't you go to Vinland?</h2>
         </body>
     </html>
     """
     return HTMLResponse(content=html_content, status_code=200)
 
-    @app.post("/present")
-async def give_present(present):
-    return {"response": f"サーバです。Happy Halloween！ {present}ありがとう。お返しはニワトコの杖です。"}  # f文字列というPythonの機能を使っている
+class Present(BaseModel):
+    present: str
+
+@app.post("/present")
+async def give_present(present: Present):
+    return {"response": f"サーバです。Happy Halloween！ {present.present}ありがとう。お返しはニワトコの杖です。"}
