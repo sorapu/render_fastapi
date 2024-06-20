@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse  # インデントエラーを修正
+from fastapi.responses import HTMLResponse
 
 import random
 
@@ -38,7 +38,8 @@ def index():
             <title>Some HTML in here</title>
         </head>
         <body>
-            <h1>Look ma! HTML!</h1>
+            <h1 style="color:blue;">"color:blue;Hi!!!!! I like Sushi!!!!</h1>
+             <h2>Why don't you go to Vinland?</h2>
         </body>
     </html>
     """
